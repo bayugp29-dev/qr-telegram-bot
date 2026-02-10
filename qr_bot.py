@@ -32,11 +32,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     welcome_message = f"""
 👋 Halo {user.first_name}!
 
-🤖   Generator QR Code Kamera!
+🤖 Generator QR Code kamera Bot!
 
+📱 **Fitur yang tersedia:**
+• Generate QR Kode kamera
+• QR Code dengan warna custom
+• QR Code dengan logo (coming soon)
+• Download QR Code dalam format PNG
 
 ⚡ **Cara menggunakan:**
-1. Kirim teks kode kamera
+1. Kirim kode kamera
 2. Pilih warna QR Code
 3. Download QR Code Anda
 
@@ -45,6 +50,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /help - Menampilkan bantuan
 /about - Tentang bot ini
 
+✨ Coba kirim Kode Kamera sekarang!
 """
     
     keyboard = [
@@ -61,11 +67,16 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 📚 **Bantuan QR Code Bot**
 
 🔹 **Cara Menggunakan:**
-1. Kirim teks kode kamera
+1. Kirim teks, URL, atau nomor telepon
 2. Pilih warna QR Code yang diinginkan
 3. QR Code akan dibuat secara otomatis
 4. Download gambar QR Code
 
+🔹 **Contoh penggunaan:**
+- Kirim: `https://google.com`
+- Kirim: `Hello World!`
+- Kirim: `+6281234567890`
+- Kirim: `WIFI:S:MyNetwork;T:WPA;P:MyPassword;;`
 
 🔹 **Fitur:**
 • QR Code dari teks/URL
@@ -88,7 +99,7 @@ async def about(update: Update, context: ContextTypes.DEFAULT_TYPE):
 📱 **Versi:** 1.0
 🔧 **Status:** Online 24/7
 👨‍💻 **Developer:** @YourUsername
-📅 **Update:** Februari 2026
+📅 **Update:** November 2024
 
 ✨ **Fitur:**
 • Generate QR Code online
@@ -217,7 +228,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 chat_id=query.message.chat_id,
                 photo=qr_image,
                 caption=f"✅ **QR Code Berhasil Dibuat!**\n\n"
-                       f"📝 **Kode kamera:** `{text[:100]}{'...' if len(text) > 100 else ''}`\n"
+                       f"📝 **Kode Kamera:** `{text[:100]}{'...' if len(text) > 100 else ''}`\n"
                        f"🎨 **Warna:** {color.capitalize()}\n\n"
                        f"📥 Klik gambar untuk mendownload",
                 parse_mode='Markdown'
@@ -282,6 +293,4 @@ def main():
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
-
     main()
-
