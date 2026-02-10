@@ -24,7 +24,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Bot token dari environment variable
-TOKEN = os.getenv('8554383116:AAEOYarQ41h90-fe_BXM3V6wWCU_V14DkQc')
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 # Command: /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -293,4 +293,5 @@ def main():
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
+
     main()
