@@ -200,7 +200,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == "generate":
         await query.edit_message_text(
             "📝 **Kirim Kode kamera yang ingin diubah menjadi QR Code!**\n\n"
-            " 1235678 ",
+            "Contoh : 1235678 ",
             parse_mode='Markdown'
         )
     
@@ -292,5 +292,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
