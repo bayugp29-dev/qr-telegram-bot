@@ -43,7 +43,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⚡ **Cara menggunakan:**
 1. Kirim kode kamera
 2. Pilih warna QR Code
-3. Download QR Code Anda
+3. Download QR Code kamera
 
 📌 **Perintah yang tersedia:**
 /start - Memulai bot
@@ -55,7 +55,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     keyboard = [
         [InlineKeyboardButton("🔄 Generate QR", callback_data="generate")],
-        [InlineKeyboardButton("❓ Bantuan", callback_data="help")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     
@@ -227,7 +226,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_photo(
                 chat_id=query.message.chat_id,
                 photo=qr_image,
-                caption=f"✅ **QR Code Berhasil Dibuat!**\n\n"
+                caption=f"✅ **QR Code kamera Berhasil Dibuat!**\n\n"
                        f"📝 **Kode Kamera:** `{text[:100]}{'...' if len(text) > 100 else ''}`\n"
                        f"🎨 **Warna:** {color.capitalize()}\n\n"
                        f"📥 Klik gambar untuk mendownload",
@@ -237,7 +236,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Ask if user wants another QR
             keyboard = [
                 [InlineKeyboardButton("🔄 Buat Lagi", callback_data="generate")],
-                [InlineKeyboardButton("🏠 Menu Utama", callback_data="menu")]
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
             
@@ -294,3 +292,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
